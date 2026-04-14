@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zahira | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, rgba(91, 76, 255, 0.18), transparent 30%),
+            radial-gradient(circle at top right, rgba(251, 114, 153, 0.15), transparent 28%),
+            radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.12), transparent 32%),
+            linear-gradient(180deg, #f8f4ff 0%, #f5f3ff 50%, #eef2ff 100%);
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    .display-serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .nav-link {
+      color: #475569;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link.active,
+    .nav-link[aria-current="page"] {
+      color: #433fd6;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-link.active::after,
+    .nav-link[aria-current="page"]::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.6rem;
+      width: 100%;
+      height: 3px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #5b4cff, #fb7185);
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      filter: drop-shadow(0 35px 120px rgba(67, 63, 214, 0.22));
+    }
+
+.hero-card {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(244, 240, 255, 0.86));
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      box-shadow: 0 50px 120px rgba(67, 63, 214, 0.18);
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 40px;
+      background: radial-gradient(circle at top left, rgba(91, 76, 255, 0.26), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 9999px;
+      background: rgba(251, 114, 153, 0.16);
+      filter: blur(24px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+
+
+
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1.2rem;
+      background: rgba(91, 76, 255, 0.08);
+      color: #433fd6;
+      border-radius: 9999px;
+      border: 1px solid rgba(91, 76, 255, 0.14);
+      box-shadow: 0 20px 50px rgba(91, 76, 255, 0.08);
+    }
+
+    .hero-badge span {
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #5b4cff, #fb7185);
+      box-shadow: 0 0 0 6px rgba(91, 76, 255, 0.1);
+    }
+
+    .section-heading {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 4rem;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(91, 76, 255, 0.95), rgba(251, 114, 153, 0.95));
+      border-radius: 9999px;
+    }
+
+    .section-panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(243, 244, 255, 0.9));
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .section-spot {
+      position: absolute;
+      border-radius: 9999px;
+      opacity: 0.2;
+      animation: floatShape 10s ease-in-out infinite;
+      filter: blur(28px);
+      z-index: 0;
+    }
+
+    .section-spot:nth-child(1) { animation-delay: 0s; }
+    .section-spot:nth-child(2) { animation-delay: 2s; }
+    .section-spot:nth-child(3) { animation-delay: 4s; }
+
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .scroll-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-animate.delay-1 { transition-delay: 0.15s; }
+    .scroll-animate.delay-2 { transition-delay: 0.3s; }
+    .scroll-animate.delay-3 { transition-delay: 0.45s; }
+    .scroll-animate.delay-4 { transition-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatShape {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-18px) scale(1.04); }
+    }
+
+    .card-hover {
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 35px 100px rgba(67, 63, 214, 0.22);
+      border-color: rgba(91, 76, 255, 0.22);
+      background-color: #f8f7ff;
+    }
+
+    .glow-button {
+      box-shadow: 0 18px 45px rgba(91, 76, 255, 0.18);
+    }
+
+#home section {
+  padding-top: 2.5rem !important;
+  padding-bottom: 3rem !important;
+}
+
+#home section > div.relative.grid {
+  gap: 1.5rem !important;
+}
+
+#home h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  line-height: 1.1 !important;
+}
+
+.display-serif {
+  font-size: clamp(1.8rem, 3vw, 3rem) !important;
+}
+
+#home p {
+  line-height: 1.6 !important;
+}
+
+
+#home .flex.justify-center {
+  align-items: flex-end !important;
+}
+
+#home .max-w-sm {
+  max-width: 280px !important;
+  margin-left: auto !important;
+}
+
+#home .rounded-\[32px\] {
+  padding: 1.5rem !important;
+}
+
+#home .rounded-\[32px\] h2 {
+  font-size: 1.4rem !important;
+}
+
+#home .rounded-\[32px\] p {
+  font-size: 0.9rem !important;
+}
+
+#home .grid.gap-4 > div {
+  padding: 0.9rem !important;
+}
+
+#home .grid.gap-4 p:last-child {
+  font-size: 0.9rem !important;
+}
+
+#home p.inline-flex {
+  white-space: nowrap !important;
+  font-size: 0.7rem !important;
+  padding: 0.6rem 1rem !important;
+  letter-spacing: 0.2em !important;
+}
+
+#home h1 {
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+}
+
+@media (min-width: 768px) {
+  #home h1 {
+    font-size: 3rem !important;
+  }
+}
+
+#home .rounded-\[32px\]:first-child {
+  display: none !important;
+}
+
+#home .grid.gap-4, #home .grid.gap-2, #home .grid.gap-3 {
+  margin-top: -0.5rem !important;
+}
+
+#home .grid.gap-3 > div, #home .grid.gap-2 > div {
+  padding: 0.6rem 0.75rem !important;
+}
+
+#home .grid.gap-3 p:first-child, #home .grid.gap-2 p:first-child {
+  font-size: 0.6rem !important;
+}
+
+#home .grid.gap-3 p:last-child, #home .grid.gap-2 p:last-child {
+  font-size: 0.8rem !important;
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:px-10">
+      <a href="#home" class="display-serif text-2xl md:text-3xl italic font-semibold text-slate-900">Zahira</a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link active hover:text-slate-900 transition" aria-current="page">Home</a>
+        <a href="about.html" class="nav-link hover:text-slate-900 transition">About</a>
+        <a href="projects.html" class="nav-link hover:text-slate-900 transition">Portofolio</a>
+        <a href="services.html" class="nav-link hover:text-slate-900 transition">Services</a>
+      </nav>
+
+      <a href="contact.html" class="hidden md:inline-flex items-center justify-center rounded-full bg-[#5b4cff] px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#433fd6] transition">Contact</a>
+
+      <button id="menuBtn" class="md:hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-medium">Menu</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-5">
+      <div class="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+        <a href="index.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Home</a>
+        <a href="about.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">About</a>
+        <a href="projects.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Portfolio</a>
+        <a href="services.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Services</a>
+        <a href="contact.html" class="mt-2 inline-flex items-center justify-center rounded-full bg-[#5b4cff] px-4 py-3 text-white font-semibold hover:bg-[#433fd6] transition">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="relative px-6 py-6 md:px-8 lg:px-12 overflow-hidden text-sm md:text-base">
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 h-[320px] w-[320px] rounded-full bg-[#ede9fe] opacity-80 blur-[90px] pointer-events-none"></div>
+    <div class="absolute -right-10 top-8 h-32 w-32 rounded-full bg-[#f97316]/15 blur-3xl"></div>
+    <div class="absolute left-4 bottom-12 h-24 w-24 rounded-full bg-[#14b8a6]/15 blur-3xl"></div>
+
+
+    <section class="relative max-w-6xl mx-auto overflow-hidden py-16 md:py-20">
+      <div class="absolute inset-x-0 top-8 h-[360px] rounded-full bg-gradient-to-r from-[#fce7ff] via-[#f5d0fe] to-[#ede9ff] opacity-90 blur-3xl pointer-events-none"></div>
+      <div class="relative grid items-center gap-8 lg:grid-cols-3">
+        <div class="space-y-6">
+          <p class="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 shadow-sm border border-slate-200">
+            <span class="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_0_6px_rgba(251,146,60,0.1)]"></span>
+            Available for new opportunities
+          </p>
+
+          <div class="space-y-3">
+            <p class="display-serif text-4xl md:text-[4.5rem] italic tracking-[-0.03em] text-slate-900">Hello, there</p>
+            <h1 class="text-4xl md:text-[5rem] font-black leading-none tracking-[-0.04em] text-slate-950 uppercase">
+              I AM<br>ZAHIRA ADIAH SAFA
+            </h1>
+          </div>
+
+          <p class="max-w-xl text-base leading-8 text-slate-600">Computer Science student passionate about UI/UX Design, front-end development, and creating clean, modern, interactive websites.</p>
+
+
+        </div>
+
+        <div class="flex justify-center">
+
+
+
+          <img src="img/zahira.png" alt="Zahira photo" class="hero-image w-auto object-contain mx-auto" />
+
+
+        </div>
+
+
+          <div class="space-y-4 max-w-md lg:max-w-sm lg:ml-auto lg:flex lg:flex-col lg:items-end lg:pt-4">
+          <div class="grid gap-3 lg:gap-2">
+            <div class="rounded-xl border border-slate-200/60 bg-slate-50/80 p-3">
+              <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Role</p>
+              <p class="mt-1 text-sm font-semibold text-slate-900">UI/UX Designer & Front-End Developer</p>
+            </div>
+            <div class="rounded-xl border border-slate-200/60 bg-slate-50/80 p-3">
+              <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Focus</p>
+              <p class="mt-1 text-sm font-semibold text-slate-900">Web Design & Interactive UI</p>
+            </div>
+          </div>
+
+          <div class="text-lg lg:text-xl font-semibold uppercase tracking-[-0.02em] text-slate-900 mt-8 lg:mt-10 pb-12 lg:pb-20 self-end">Creative Web Portfolio</div>
+
+
+
+
+        </div>
+
+
+      </div>
+    </section>
+
+    <section id="about" class="mt-24 max-w-7xl mx-auto grid gap-10 lg:grid-cols-12 scroll-animate delay-2 relative">
+      <div class="section-spot left-0 top-12 h-28 w-28 bg-[#f97316]/20"></div>
+      <div class="section-spot -right-10 bottom-10 h-32 w-32 bg-[#7c3aed]/18"></div>
+      <div class="lg:col-span-5 space-y-6">
+        <p class="text-sm uppercase tracking-[0.25em] text-indigo-600 font-semibold section-heading">About Me</p>
+        <h2 class="text-2xl md:text-3xl font-semibold text-slate-900">I build meaningful digital experiences.</h2>
+        <p class="text-slate-600 leading-8">I am a Computer Science student who enjoys designing clean interfaces and creating websites that are easy to use. I love delivering solutions that feel both functional and beautiful.</p>
+        <p class="text-slate-600 leading-8">Beyond coding, I enjoy exploring the latest UI/UX trends and building projects that help people in a simple, clear way.</p>
+      </div>
+      <div class="lg:col-span-7 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">Core Skills</h3>
+          <ul class="mt-4 space-y-3 text-slate-600">
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>Tailwind CSS</li>
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <h3 class="text-base font-semibold text-slate-900">Favorite Tools</h3>
+          <ul class="mt-4 space-y-3 text-slate-600">
+            <li>Figma</li>
+            <li>VS Code</li>
+            <li>Git</li>
+            <li>Chrome DevTools</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="mt-24 max-w-7xl mx-auto scroll-animate delay-3 relative">
+      <div class="section-spot left-0 -top-10 h-24 w-24 bg-[#4338ca]/20"></div>
+      <div class="section-spot right-6 top-8 h-20 w-20 bg-[#ec4899]/20"></div>
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+        <p class="text-sm uppercase tracking-[0.25em] text-indigo-600 font-semibold section-heading">Portfolio</p>
+          <h2 class="text-2xl md:text-3xl font-semibold text-slate-900">Selected projects.</h2>
+        </div>
+      </div>
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        <article class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm card-hover scroll-animate">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Web App</span>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Concerta</h3>
+            <p class="mt-3 text-slate-600 leading-7">Concert ticket system helping users buy tickets online quickly and neatly.</p>
+          <a href="https://github.com/Zahirasafa/Concerta" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View GitHub</a>
+        </article>
+        <article class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm card-hover scroll-animate">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">UI/UX</span>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Figma Design</h3>
+            <p class="mt-3 text-slate-600 leading-7">Portfolio concept and interface designs with modern layouts and consistent visuals.</p>
+          <a href="https://www.figma.com/design/lSjzgq0IlBL3jGUFt2rvzd/ZAHIRA-ADIAH-SAFA?node-id=0-1&t=jah9XoNMuuCxMtYY-1" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View Figma</a>
+        </article>
+        <article class="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm card-hover scroll-animate">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Mobile App</span>
+          <h3 class="mt-4 text-lg font-semibold text-slate-900">Travel Planner</h3>
+            <p class="mt-3 text-slate-600 leading-7">Travel planner app in development with practical trip planning features.</p>
+          <a href="https://github.com/Zahirasafa/PrakTAM2_2417051012" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="mt-24 max-w-5xl mx-auto grid gap-8 lg:grid-cols-2 scroll-animate delay-4 relative">
+      <div class="section-spot -left-6 top-4 h-24 w-24 bg-[#f97316]/18"></div>
+      <div class="section-spot right-8 bottom-6 h-28 w-28 bg-[#38bdf8]/18"></div>
+      <div class="rounded-[32px] border border-indigo-100 bg-white p-8 shadow-[0_24px_60px_rgba(67,63,214,0.08)] section-panel">
+        <p class="text-sm uppercase tracking-[0.25em] text-indigo-600 font-semibold section-heading">Contact</p>
+        <h2 class="mt-4 text-xl md:text-2xl font-semibold text-slate-900">Ready to collaborate? Let’s talk.</h2>
+        <p class="mt-4 text-slate-600 leading-7">Send a message via WhatsApp or email, or use the form on the right to share your project details.</p>
+        <div class="mt-6 space-y-2 text-slate-700">
+          <p><span class="font-semibold">WhatsApp:</span> 0819-5748-3500</p>
+          <p><span class="font-semibold">Email:</span> raraadiah6@gmail.com</p>
+          <p><span class="font-semibold">Instagram:</span> zahiradsf</p>
+        </div>
+      </div>
+      <div class="rounded-[32px] border border-slate-200 bg-[#f8fafc] p-6 shadow-sm">
+        <form id="contactForm" class="space-y-4">
+          <p id="formStatus" class="text-sm text-slate-600"></p>
+          <div>
+            <label for="name" class="block text-sm font-semibold text-slate-900">Name</label>
+            <input id="name" type="text" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-3 py-2.5 text-slate-900 outline-none focus:border-[#5b4cff] focus:ring-2 focus:ring-[#5b4cff]/20" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-semibold text-slate-900">Email</label>
+            <input id="email" type="email" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-3 py-2.5 text-slate-900 outline-none focus:border-[#5b4cff] focus:ring-2 focus:ring-[#5b4cff]/20" placeholder="Your email" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-semibold text-slate-900">Message</label>
+            <textarea id="message" rows="5" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-3 py-2.5 text-slate-900 outline-none focus:border-[#5b4cff] focus:ring-2 focus:ring-[#5b4cff]/20" placeholder="Write your message or project idea"></textarea>
+          </div>
+          <button type="submit" class="w-full rounded-full bg-[#5b4cff] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#433fd6] transition">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Zahira Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @import "shared-styles.css";
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, rgba(91, 76, 255, 0.18), transparent 30%),
+            radial-gradient(circle at top right, rgba(251, 114, 153, 0.15), transparent 28%),
+            radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.12), transparent 32%),
+            linear-gradient(180deg, #e0b3ed 0%, #f5f3ff 50%, #eef2ff 100%);
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    .display-serif { font-family: 'Cormorant Garamond', serif; }
+
+    .nav-link {
+      color: #475569;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link.active,
+    .nav-link[aria-current="page"] {
+      color: #433fd6;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-link.active::after,
+    .nav-link[aria-current="page"]::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.6rem;
+      width: 100%;
+      height: 3px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #5b4cff, #fb7185);
+    }
+
+    .section-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,244,255,0.92));
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 35px 90px rgba(67, 63, 214, 0.08);
+    }
+
+    .section-heading {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-heading::after {
+      content: '';
+      width: 4rem;
+      height: 4px;
+      background: linear-gradient(90deg, #5b4cff, #fb7185);
+      border-radius: 9999px;
+    }
+
+    .project-card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 35px 90px rgba(67, 63, 214, 0.14);
+      border-color: rgba(91, 76, 255, 0.18);
+    }
+
+    .spot {
+      position: absolute;
+      border-radius: 9999px;
+      opacity: 0.2;
+      filter: blur(28px);
+      z-index: 0;
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .fade-in-up.delay-1 { animation-delay: 0.15s; }
+    .fade-in-up.delay-2 { animation-delay: 0.3s; }
+    .fade-in-up.delay-3 { animation-delay: 0.45s; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:px-10">
+      <a href="index.html" class="display-serif text-2xl md:text-3xl italic font-semibold text-slate-900">Zahira</a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link hover:text-slate-900 transition">Home</a>
+        <a href="about.html" class="nav-link hover:text-slate-900 transition">About</a>
+        <a href="projects.html" class="nav-link active hover:text-slate-900 transition" aria-current="page">Portofolio</a>
+        <a href="services.html" class="nav-link hover:text-slate-900 transition">Services</a>
+      </nav>
+
+      <a href="contact.html" class="hidden md:inline-flex items-center justify-center rounded-full bg-[#5b4cff] px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#433fd6] transition">Contact</a>
+
+      <button id="menuBtn" class="md:hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-medium">Menu</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-5">
+      <div class="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+        <a href="index.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Home</a>
+        <a href="about.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">About</a>
+        <a href="projects.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Port0folio</a>
+        <a href="services.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Services</a>
+        <a href="contact.html" class="mt-2 inline-flex items-center justify-center rounded-full bg-[#5b4cff] px-4 py-3 text-white font-semibold hover:bg-[#433fd6] transition">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="px-6 py-12 md:px-10 lg:px-14">
+    <section class="relative max-w-7xl mx-auto space-y-8">
+      <div class="spot left-0 top-16 h-32 w-32 bg-[#5b4cff]/20"></div>
+      <div class="spot right-6 bottom-10 h-24 w-24 bg-[#fb7185]/20"></div>
+      <div class="rounded-[32px] section-panel p-10 relative overflow-hidden fade-in-up">
+        <p class="text-sm uppercase tracking-[0.25em] text-indigo-600 font-semibold section-heading">Portfolio</p>
+        <h1 class="mt-4 text-xl md:text-2xl font-bold text-slate-900">Projects I have worked on.</h1>
+        <p class="mt-6 text-slate-600 leading-8">Browse select work with cleaner visuals, smoother hover states, and simple filters.</p>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-3">
+        <article data-category="webapp" class="project-card rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Web App</span>
+          <h2 class="mt-4 text-xl font-semibold text-slate-900">Concerta</h2>
+          <p class="mt-3 text-slate-600 leading-7">Concert ticket system that provides a fast and neat online ticket buying experience.</p>
+          <a href="https://github.com/Zahirasafa/Concerta" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View GitHub</a>
+        </article>
+        <article data-category="uiux" class="project-card rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">UI/UX</span>
+          <h2 class="mt-4 text-xl font-semibold text-slate-900">Figma Design</h2>
+          <p class="mt-3 text-slate-600 leading-7">Concept design for portfolio and interface display with clean visual flow.</p>
+          <a href="https://www.figma.com/design/lSjzgq0IlBL3jGUFt2rvzd/ZAHIRA-ADIAH-SAFA?node-id=0-1&t=jah9XoNMuuCxMtYY-1" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View Figma</a>
+        </article>
+        <article data-category="webapp" class="project-card rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Mobile App</span>
+          <h2 class="mt-4 text-xl font-semibold text-slate-900">Travel Planner</h2>
+          <p class="mt-3 text-slate-600 leading-7">On progress: travel planner app being developed for trip planning features.</p>
+          <a href="https://github.com/Zahirasafa/PrakTAM2_2417051012" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View GitHub</a>
+        </article>
+        <article data-category="webapp" class="project-card rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Web App</span>
+          <h2 class="mt-4 text-xl font-semibold text-slate-900">Introduce Team Pemweb</h2>
+          <p class="mt-3 text-slate-600 leading-7">Team introduction project for Pemweb course, displaying members and their roles.</p>
+          <a href="https://github.com/Zahirasafa/Pemweb-Introduce-Team" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View GitHub</a>
+        </article>
+        <article data-category="webapp" class="project-card rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Web App</span>
+          <h2 class="mt-4 text-xl font-semibold text-slate-900">Car Rental System</h2>
+          <p class="mt-3 text-slate-600 leading-7">Project will be added after repository is ready.</p>
+          <a href="#" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View GitHub</a>
+        </article>
+        <article data-category="branding" class="project-card rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#eef2ff] p-6 shadow-sm">
+          <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Design</span>
+          <h2 class="mt-4 text-xl font-semibold text-slate-900">Login Page Design</h2>
+          <p class="mt-3 text-slate-600 leading-7">Clean login page design for class applications and your UI/UX works.</p>
+          <a href="https://github.com/Zahirasafa/Zahira-Adiah-Safa_2417051012-/tree/main/KuisPemweb" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-sm font-semibold text-[#433fd6] hover:text-[#5b4cff]">View GitHub</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

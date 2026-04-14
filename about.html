@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Zahira Portofolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, rgba(91, 76, 255, 0.18), transparent 30%),
+            radial-gradient(circle at top right, rgba(251, 114, 153, 0.15), transparent 28%),
+            radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.12), transparent 32%),
+            linear-gradient(180deg, #e0b3ed 0%, #f5f3ff 50%, #eef2ff 100%);
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    .display-serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .nav-link {
+      color: #475569;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link.active,
+    .nav-link[aria-current="page"] {
+      color: #433fd6;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-link.active::after,
+    .nav-link[aria-current="page"]::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.6rem;
+      width: 100%;
+      height: 3px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #5b4cff, #fb7185);
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      filter: drop-shadow(0 35px 120px rgba(67, 63, 214, 0.22));
+    }
+
+.hero-card {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(244, 240, 255, 0.86));
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      box-shadow: 0 50px 120px rgba(67, 63, 214, 0.18);
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1.2rem;
+      background: rgba(91, 76, 255, 0.08);
+      color: #433fd6;
+      border-radius: 9999px;
+      border: 1px solid rgba(91, 76, 255, 0.14);
+      box-shadow: 0 20px 50px rgba(91, 76, 255, 0.08);
+    }
+
+    .hero-badge span {
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #5b4cff, #fb7185);
+      box-shadow: 0 0 0 6px rgba(91, 76, 255, 0.1);
+    }
+
+    .section-heading {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 4rem;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(91, 76, 255, 0.95), rgba(251, 114, 153, 0.95));
+      border-radius: 9999px;
+    }
+
+    .section-panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(243, 244, 255, 0.9));
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+
+
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .scroll-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-animate.delay-1 { transition-delay: 0.15s; }
+    .scroll-animate.delay-2 { transition-delay: 0.3s; }
+    .scroll-animate.delay-3 { transition-delay: 0.45s; }
+    .scroll-animate.delay-4 { transition-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+
+    .card-hover {
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 35px 100px rgba(67, 63, 214, 0.22);
+      border-color: rgba(91, 76, 255, 0.22);
+      background-color: #f8f7ff;
+    }
+
+    .glow-button {
+      box-shadow: 0 18px 45px rgba(91, 76, 255, 0.18);
+    }
+
+    /* ===== FIX HERO SPACING (biar ga kejauhan dari navbar) ===== */
+#home section {
+  padding-top: 2.5rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* ===== FIX GRID BIAR LEBIH BALANCE ===== */
+#home section > div.relative.grid {
+  gap: 1.5rem !important;
+}
+
+/* ===== TEXT KIRI BIAR GA KEGEDEAN ===== */
+#home h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  line-height: 1.1 !important;
+}
+
+.display-serif {
+  font-size: clamp(1.8rem, 3vw, 3rem) !important;
+}
+
+/* ===== PARAGRAF BIAR LEBIH RAPI ===== */
+#home p {
+  line-height: 1.6 !important;
+}
+
+
+
+/* biar posisi lebih naik dikit */
+#home .flex.justify-center {
+  align-items: flex-end !important;
+}
+
+/* ===== FIX CARD KANAN ===== */
+#home .max-w-sm {
+  max-width: 280px !important;
+  margin-left: auto !important;
+}
+
+/* card utama kanan */
+#home .rounded-\[32px\] {
+  padding: 1.5rem !important;
+}
+
+/* judul card kanan */
+#home .rounded-\[32px\] h2 {
+  font-size: 1.4rem !important;
+}
+
+/* isi text card */
+#home .rounded-\[32px\] p {
+  font-size: 0.9rem !important;
+}
+
+/* ===== CARD ROLE & FOCUS ===== */
+#home .grid.gap-4 > div {
+  padding: 0.9rem !important;
+}
+
+#home .grid.gap-4 p:last-child {
+  font-size: 0.9rem !important;
+}
+
+/* ===== FIX BADGE BIAR 1 BARIS ===== */
+#home p.inline-flex {
+  white-space: nowrap !important;
+  font-size: 0.7rem !important;
+  padding: 0.6rem 1rem !important;
+  letter-spacing: 0.2em !important;
+}
+
+/* ===== KECILIN JUDUL UTAMA ===== */
+#home h1 {
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* samain feel sama "Creative Web Portfolio" */
+@media (min-width: 768px) {
+  #home h1 {
+    font-size: 3rem !important;
+  }
+}
+
+/* ===== HIDE "WHY ME" CARD ===== */
+#home .rounded-\[32px\]:first-child {
+  display: none !important;
+}
+
+/* ===== NAIKIN ROLE & FOCUS ===== */
+#home .grid.gap-4, #home .grid.gap-2, #home .grid.gap-3 {
+  margin-top: -0.5rem !important;
+}
+
+/* biar langsung ke atas */
+
+/* ===== RAPIHIN CARD ROLE & FOCUS ===== */
+#home .grid.gap-3 > div, #home .grid.gap-2 > div {
+  padding: 0.6rem 0.75rem !important;
+}
+
+#home .grid.gap-3 p:first-child, #home .grid.gap-2 p:first-child {
+  font-size: 0.6rem !important;
+}
+
+#home .grid.gap-3 p:last-child, #home .grid.gap-2 p:last-child {
+  font-size: 0.8rem !important;
+}
+
+
+  
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:px-10">
+      <a href="index.html" class="display-serif text-2xl md:text-3xl italic font-semibold text-slate-900">Zahira</a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link hover:text-slate-900 transition">Home</a>
+        <a href="about.html" class="nav-link active hover:text-slate-900 transition" aria-current="page">About</a>
+        <a href="projects.html" class="nav-link hover:text-slate-900 transition">Portofolio</a>
+        <a href="services.html" class="nav-link hover:text-slate-900 transition">Services</a>
+      </nav>
+
+      <a href="contact.html" class="hidden md:inline-flex items-center justify-center rounded-full bg-[#5b4cff] px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#433fd6] transition">Contact</a>
+
+      <button id="menuBtn" class="md:hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-medium">Menu</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4">
+      <div class="flex flex-col gap-2 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+        <a href="index.html" class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-100 transition">Home</a>
+        <a href="about.html" class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-100 transition">About</a>
+        <a href="projects.html" class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-100 transition">Portofolio</a>
+        <a href="services.html" class="rounded-2xl px-3 py-2 text-slate-700 hover:bg-slate-100 transition">Services</a>
+        <a href="contact.html" class="mt-2 inline-flex items-center justify-center rounded-2xl bg-[#5b4cff] px-4 py-2 text-sm font-semibold text-white hover:bg-[#433fd6] transition">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="px-6 py-10 md:px-8 lg:px-12">
+    <section class="relative max-w-5xl mx-auto space-y-7">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="rounded-3xl lg:rounded-[2rem] section-panel p-8 lg:p-12 relative overflow-hidden glass-hero fade-in-up">
+
+          <p class="text-sm uppercase tracking-[0.25em] text-indigo-600 font-semibold section-heading">About Me</p>
+          <h1 class="mt-6 text-2xl lg:text-3xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-[#5b4cff] bg-clip-text text-transparent">Meet Zahira</h1>
+          <p class="mt-6 text-slate-600 leading-8 text-base">Computer Science student passionate about crafting modern websites and intuitive interfaces. I focus on clean design, smooth interactions, and user-centered solutions. Always learning new trends and techniques.</p>
+
+
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        <div class="rounded-3xl section-panel p-4 card-hover">
+          <h2 class="text-base font-semibold text-slate-900">What I've Done</h2>
+          <p class="mt-3 text-slate-600 text-sm leading-6">I’ve worked on several small projects like landing pages and personal websites. I’m also involved in student organizations, which helped me learn teamwork, responsibility, and how to handle real tasks with others.</p>
+        </div>
+        <div class="rounded-3xl section-panel p-4 card-hover">
+          <h2 class="text-base font-semibold text-slate-900">My Approach</h2>
+          <p class="mt-3 text-slate-600 text-sm leading-6">I like keeping things simple and clear. I believe a good design doesn’t need to be complicated — it just needs to work and feel right for the user.</p>
+        </div>
+        <div class="rounded-3xl section-panel p-4 card-hover">
+          <h2 class="text-base font-semibold text-slate-900">What I Focus On</h2>
+          <p class="mt-3 text-slate-600 text-sm leading-6">I mostly work on frontend and UI/UX. I like building responsive websites using HTML, CSS, and JavaScript, and making sure they feel good to use.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 max-w-5xl mx-auto rounded-[28px] border border-slate-200 bg-[#f8fafc] p-6 shadow-sm">
+      <h2 class="text-xl md:text-2xl font-semibold text-slate-900">Core Skills</h2>
+      <div class="mt-5 grid gap-4 md:grid-cols-3">
+        <div class="rounded-3xl bg-white p-5 shadow-sm">
+          <h3 class="font-semibold text-slate-900">Front-End</h3>
+          <p class="mt-3 text-slate-600 text-sm">HTML, CSS, JavaScript, Tailwind</p>
+        </div>
+        <div class="rounded-3xl bg-white p-5 shadow-sm">
+          <h3 class="font-semibold text-slate-900">UI/UX</h3>
+          <p class="mt-3 text-slate-600 text-sm">Figma, prototyping, user flows</p>
+        </div>
+        <div class="rounded-3xl bg-white p-5 shadow-sm">
+          <h3 class="font-semibold text-slate-900">Tools</h3>
+          <p class="mt-3 text-slate-600 text-sm">VS Code, Git, Chrome DevTools</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

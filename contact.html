@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Zahira Portofolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @import "shared-styles.css";
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.16), transparent 28%),
+                  radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.12), transparent 25%),
+                  #eef2ff;
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    .display-serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .nav-link {
+      color: #475569;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link.active,
+    .nav-link[aria-current="page"] {
+      color: #433fd6;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-link.active::after,
+    .nav-link[aria-current="page"]::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.6rem;
+      width: 100%;
+      height: 3px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #5b4cff, #fb7185);
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 40px 120px rgba(67, 63, 214, 0.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .highlight-dot {
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #5b4cff, #8b5cf6);
+      border-radius: 9999px;
+      box-shadow: 0 0 0 6px rgba(91, 76, 255, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:px-10">
+      <a href="index.html" class="display-serif text-2xl md:text-3xl italic font-semibold text-slate-900">Zahira</a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="nav-link hover:text-slate-900 transition">Home</a>
+        <a href="about.html" class="nav-link hover:text-slate-900 transition">About</a>
+        <a href="projects.html" class="nav-link hover:text-slate-900 transition">Portofolio</a>
+        <a href="services.html" class="nav-link hover:text-slate-900 transition">Services</a>
+      </nav>
+
+      <a href="contact.html" class="hidden md:inline-flex items-center justify-center rounded-full bg-[#5b4cff] px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#433fd6] transition">Contact</a>
+
+      <button id="menuBtn" class="md:hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-medium">Menu</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-5">
+      <div class="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+        <a href="index.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Home</a>
+        <a href="about.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">About</a>
+        <a href="projects.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Portofolio</a>
+        <a href="services.html" class="rounded-full px-4 py-2 text-slate-700 hover:bg-slate-100 transition">Services</a>
+        <a href="contact.html" class="mt-2 inline-flex items-center justify-center rounded-full bg-[#5b4cff] px-4 py-3 text-white font-semibold hover:bg-[#433fd6] transition">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative px-6 py-12 md:px-10 lg:px-14 overflow-hidden">
+    <div class="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#5b4cff]/15 blur-3xl"></div>
+    <div class="absolute right-0 top-24 h-60 w-60 rounded-full bg-[#fb7185]/15 blur-3xl"></div>
+    <section class="relative max-w-7xl mx-auto grid gap-10 lg:grid-cols-[1.1fr_0.95fr] items-center">
+      <div class="space-y-10">
+        <div class="inline-flex items-center gap-3 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold tracking-[0.28em] text-[#5b4cff] shadow-lg shadow-[#5b4cff]/10 backdrop-blur-sm">
+          <span class="highlight-dot"></span>
+          Contact Studio
+        </div>
+
+        <div class="space-y-6">
+          <p class="text-sm uppercase tracking-[0.25em] text-indigo-600 font-semibold">Contact</p>
+          <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900">Let's create something bold.</h1>
+          <p class="max-w-2xl text-lg leading-8 text-slate-600">Tell me about your website idea, brand refresh, or launch project. I’ll reply with a clear plan and fresh visual direction.</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-[28px] border border-white/70 bg-white/70 p-6 shadow-[0_20px_60px_rgba(67,63,214,0.08)] backdrop-blur-md">
+            <p class="text-sm uppercase tracking-[0.24em] text-slate-400">Email</p>
+            <p class="mt-4 text-xl font-semibold text-slate-900">raraadiah6@gmail.com</p>
+          </div>
+          <div class="rounded-[28px] border border-white/70 bg-white/70 p-6 shadow-[0_20px_60px_rgba(67,63,214,0.08)] backdrop-blur-md">
+            <p class="text-sm uppercase tracking-[0.24em] text-slate-400">WhatsApp</p>
+            <p class="mt-4 text-xl font-semibold text-slate-900">+62 819-5748-3500</p>
+          </div>
+        </div>
+
+        <div class="rounded-[32px] border border-slate-200 bg-white/90 p-8 shadow-[0_30px_80px_rgba(67,63,214,0.08)]">
+          <p class="text-sm uppercase tracking-[0.25em] text-indigo-600 font-semibold">Why reach out?</p>
+          <ul class="mt-5 space-y-3 text-slate-600">
+            <li class="rounded-2xl bg-slate-50 p-4">Custom web pages with personality and clarity.</li>
+            <li class="rounded-2xl bg-slate-50 p-4">UI/UX design that looks sharp and feels easy.</li>
+            <li class="rounded-2xl bg-slate-50 p-4">A polished frontend ready to share with clients or friends.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -right-10 top-10 h-24 w-24 rounded-full bg-[#f97316]/15 blur-3xl"></div>
+        <div class="glass-panel relative overflow-hidden rounded-[40px] p-8">
+          <div class="mb-8">
+            <p class="text-sm uppercase tracking-[0.3em] text-indigo-600 font-semibold">Send a note</p>
+            <h2 class="mt-4 text-2xl font-semibold text-slate-900">Let's talk about your next project.</h2>
+            <p class="mt-3 text-slate-600 leading-7">Fill the form and I’ll follow up with a plan, timeline, and new ideas.</p>
+          </div>
+
+          <form id="contactForm" class="space-y-6">
+            <p id="formStatus" class="text-sm text-slate-600"></p>
+            <div class="space-y-2">
+              <label for="name" class="text-sm font-semibold text-slate-800">Name</label>
+              <input id="name" type="text" class="w-full rounded-[28px] border border-slate-200 bg-white px-5 py-3 text-slate-900 outline-none transition focus:border-[#5b4cff] focus:ring-2 focus:ring-[#5b4cff]/20" placeholder="Your name" />
+            </div>
+            <div class="space-y-2">
+              <label for="email" class="text-sm font-semibold text-slate-800">Email</label>
+              <input id="email" type="email" class="w-full rounded-[28px] border border-slate-200 bg-white px-5 py-3 text-slate-900 outline-none transition focus:border-[#5b4cff] focus:ring-2 focus:ring-[#5b4cff]/20" placeholder="Your email" />
+            </div>
+            <div class="space-y-2">
+              <label for="message" class="text-sm font-semibold text-slate-800">Project brief</label>
+              <textarea id="message" rows="6" class="w-full rounded-[28px] border border-slate-200 bg-white px-5 py-4 text-slate-900 outline-none transition focus:border-[#5b4cff] focus:ring-2 focus:ring-[#5b4cff]/20" placeholder="Tell me what you need..."></textarea>
+            </div>
+            <button type="submit" class="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-[#5b4cff] to-[#8b5cf6] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#5b4cff]/20 transition hover:opacity-95">Send request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
